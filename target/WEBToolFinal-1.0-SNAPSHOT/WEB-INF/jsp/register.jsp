@@ -21,173 +21,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<script src="js/simpleCart.min.js"> </script>
 <!-- cart -->
 <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+
 </head>
 <body>
-	<!-- header-section-starts -->
-	<div class="header">
-		<div class="header-top-strip">
-			<div class="container">
-				<div class="header-top-left">
-					<ul>
-						<li><a href="${contextPath}/WEBToolFinal/account.htm"><span class="glyphicon glyphicon-user"> </span>Login</a></li>
-						<li><a href="${contextPath}/WEBToolFinal/register.htm"><span class="glyphicon glyphicon-lock"> </span>Create an Account</a></li>			
-					</ul>
-				</div>
-				<div class="header-right">
-						<div class="cart box_1">
-							<a href="checkout.html">
-								<h3> <span class="simpleCart_total"> $0.00 </span> (<span id="simpleCart_quantity" class="simpleCart_quantity"> 0 </span>)<img src="images/bag.png" alt=""></h3>
-							</a>	
-							<p><a href="javascript:;" class="simpleCart_empty">Empty cart</a></p>
-							<div class="clearfix"> </div>
-						</div>
-				</div>
-				<div class="clearfix"> </div>
-			</div>
-		</div>
-	</div>
-	<!-- header-section-ends -->
-	<div class="inner-banner">
-		<div class="container">
-			<div class="banner-top inner-head">
-				<nav class="navbar navbar-default" role="navigation">
-	    <div class="navbar-header">
-	        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-		        <span class="sr-only">Toggle navigation</span>
-		        <span class="icon-bar"></span>
-		        <span class="icon-bar"></span>
-		        <span class="icon-bar"></span>
-	        </button>
-				<div class="logo">
-					<h1><a href="index.html"><span>E</span> -Shop</a></h1>
-				</div>
-	    </div>
-	    <!--/.navbar-header-->
+<%@include file="menu.jsp" %>  
 	
-	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-	        <ul class="nav navbar-nav">
-			<li><a href="index.html">Home</a></li>
-		        <li class="dropdown">
-		            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Men <b class="caret"></b></a>
-		            <ul class="dropdown-menu multi-column columns-3">
-			            <div class="row">
-				            <div class="col-sm-4">
-					            <ul class="multi-column-dropdown">
-									<h6>NEW IN</h6>
-						            <li><a href="products.html">New In Clothing</a></li>
-						            <li><a href="products.html">New In Bags</a></li>
-						            <li><a href="products.html">New In Shoes</a></li>
-						            <li><a href="products.html">New In Watches</a></li>
-						            <li><a href="products.html">New In Grooming</a></li>
-					            </ul>
-				            </div>
-				            <div class="col-sm-4">
-					            <ul class="multi-column-dropdown">
-									<h6>CLOTHING</h6>
-						            <li><a href="products.html">Polos & Tees</a></li>
-						            <li><a href="products.html">Casual Shirts</a></li>
-						            <li><a href="products.html">Casual Trousers</a></li>
-						            <li><a href="products.html">Jeans</a></li>
-						            <li><a href="products.html">Shorts & 3/4th</a></li>
-						            <li><a href="products.html">Formal Shirts</a></li>
-						            <li><a href="products.html">Formal Trousers</a></li>
-						            <li><a href="products.html">Suits & Blazers</a></li>
-						            <li><a href="products.html">Track Wear</a></li>
-						            <li><a href="products.html">Inner Wear</a></li>
-					            </ul>
-				            </div>
-				            <div class="col-sm-4">
-					            <ul class="multi-column-dropdown">
-									<h6>WATCHES</h6>
-						            <li><a href="products.html">Analog</a></li>
-						            <li><a href="products.html">Chronograph</a></li>
-						            <li><a href="products.html">Digital</a></li>
-						            <li><a href="products.html">Watch Cases</a></li>
-					            </ul>
-				            </div>
-							<div class="clearfix"></div>
-			            </div>
-		            </ul>
-		        </li>
-		        <li class="dropdown">
-		            <a href="#" class="dropdown-toggle" data-toggle="dropdown">women <b class="caret"></b></a>
-		            <ul class="dropdown-menu multi-column columns-3">
-			            <div class="row">
-				            <div class="col-sm-4">
-					            <ul class="multi-column-dropdown">
-									<h6>NEW IN</h6>
-						            <li><a href="products.html">New In Clothing</a></li>
-						            <li><a href="products.html">New In Bags</a></li>
-						            <li><a href="products.html">New In Shoes</a></li>
-						            <li><a href="products.html">New In Watches</a></li>
-						            <li><a href="products.html">New In Beauty</a></li>
-					            </ul>
-				            </div>
-				            <div class="col-sm-4">
-					            <ul class="multi-column-dropdown">
-									<h6>CLOTHING</h6>
-						            <li><a href="products.html">Polos & Tees</a></li>
-						            <li><a href="products.html">Casual Shirts</a></li>
-						            <li><a href="products.html">Casual Trousers</a></li>
-						            <li><a href="products.html">Jeans</a></li>
-						            <li><a href="products.html">Shorts & 3/4th</a></li>
-						            <li><a href="products.html">Formal Shirts</a></li>
-						            <li><a href="products.html">Formal Trousers</a></li>
-						            <li><a href="products.html">Suits & Blazers</a></li>
-						            <li><a href="products.html">Track Wear</a></li>
-						            <li><a href="products.html">Inner Wear</a></li>
-					            </ul>
-				            </div>
-				            <div class="col-sm-4">
-					            <ul class="multi-column-dropdown">
-									<h6>WATCHES</h6>
-						            <li><a href="products.html">Analog</a></li>
-						            <li><a href="products.html">Chronograph</a></li>
-						            <li><a href="products.html">Digital</a></li>
-						            <li><a href="products.html">Watch Cases</a></li>
-					            </ul>
-				            </div>
-							<div class="clearfix"></div>
-			            </div>
-		            </ul>
-		        </li>
-		        <li class="dropdown">
-		        	<a href="#" class="dropdown-toggle" data-toggle="dropdown">kids <b class="caret"></b></a>
-		            <ul class="dropdown-menu multi-column columns-2">
-			            <div class="row">
-				            <div class="col-sm-6">
-					            <ul class="multi-column-dropdown">
-									<h6>NEW IN</h6>
-						            <li><a href="products.html">New In Boys Clothing</a></li>
-						            <li><a href="products.html">New In Girls Clothing</a></li>
-						            <li><a href="products.html">New In Boys Shoes</a></li>
-						            <li><a href="products.html">New In Girls Shoes</a></li>
-					            </ul>
-				            </div>
-				            <div class="col-sm-6">
-					             <ul class="multi-column-dropdown">
-									<h6>ACCESSORIES</h6>
-						            <li><a href="products.html">Bags</a></li>
-						            <li><a href="products.html">Watches</a></li>
-						            <li><a href="products.html">Sun Glasses</a></li>
-						            <li><a href="products.html">Jewellery</a></li>
-					            </ul>
-				            </div>
-							<div class="clearfix"></div>
-			            </div>
-		            </ul>
-		        </li>
-					<li><a href="typography.html">TYPO</a></li>
-					<li><a href="contact.html">CONTACT</a></li>
-	        </ul>
-	    </div>
-	    <!--/.navbar-collapse-->
-	</nav>
-	<!--/.navbar-->
-</div>
-	</div>
-		</div>
-		<!-- registration-form -->
 <div class="registration-form">
 	<div class="container">
 	<div class="dreamcrub">
@@ -211,32 +49,37 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="reg">
 					 <p>Welcome, please enter the following details to continue.</p>
 					 <p>If you have previously registered with us, <a href="${contextPath}/WEBToolFinal/account.htm">click here</a></p>
-					 <form>
+                                         <form> 
+                                             <!--action="registerValid.htm">-->
 						 <ul>
 							 <li class="text-info">First Name: </li>
-							 <li><input type="text" value=""></li>
+							 <li><input id="fname" name="fname" type="text" ><span id="uspan"></span></li>
 						 </ul>
 						 <ul>
 							 <li class="text-info">Last Name: </li>
-							 <li><input type="text" value=""></li>
+							 <li><input name="lname" type="text" ></li>
 						 </ul>				 
 						<ul>
 							 <li class="text-info">Email: </li>
-							 <li><input type="text" value=""></li>
+                                                         <li><input name="email" id="email" type="text" onblur="checkEmailIfused()" ><span id="demo"></span></li>
 						 </ul>
 						 <ul>
 							 <li class="text-info">Password: </li>
-							 <li><input type="password" value=""></li>
+							 <li><input name="pass" type="password" ></li>
 						 </ul>
 						 <ul>
 							 <li class="text-info">Re-enter Password:</li>
-							 <li><input type="password" value=""></li>
+							 <li><input name="repass"  type="password" ></li>
 						 </ul>
 						 <ul>
 							 <li class="text-info">Mobile Number:</li>
-							 <li><input type="text" value=""></li>
+							 <li><input name="mobilenumber" type="text" ></li>
 						 </ul>						
-						 <input type="submit" value="REGISTER NOW">
+						 <ul>
+							 <li class="text-info">Address:</li>
+							 <li><input name="address" type="text" ></li>
+						 </ul>						
+                                             <input type="submit" value="REGISTER NOW" onclick="checkForm()">
 						 <p class="click">By clicking this button, you are agree to my  <a href="#">Policy Terms and Conditions.</a></p> 
 					 </form>
 				 </div>
@@ -339,3 +182,34 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 </body>
 </html>
+<script type="text/javascript">
+    function checkForm(){
+        var username= document.getElementById("fname").value;
+        if(username == ""|| username== null){
+            var uspan = document.getElementById("uspan");
+			uspan.innerHTML = "!!!!";
+//            alert("!");
+            return false;
+        }
+        
+    }
+   
+    function checkEmailIfused() {
+  var xhttp;
+  if (window.XMLHttpRequest) {
+    // code for modern browsers
+    xhttp = new XMLHttpRequest();
+    } else {
+    // code for IE6, IE5
+    xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+  }
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("demo").innerHTML = this.responseText;
+    }
+  };
+   var email= document.getElementById("email").value;
+  xhttp.open("POST", "${contextPath}/WEBToolFinal/findbyEmail.htm?time="+new Date().getTime()+"&useremail="+email, true);
+  xhttp.send();
+}
+</script>
