@@ -11,7 +11,7 @@
 			<div class="container">
 				<div class="header-top-left">
 					<ul>
-						<li><a href="${contextPath}/WEBToolFinal/addindb.htm"><span class="glyphicon glyphicon-user"> </span>Login</a></li>
+						<li><a href="${contextPath}/WEBToolFinal/account.htm"><span class="glyphicon glyphicon-user"> </span>Login</a></li>
 						<li><a href="${contextPath}/WEBToolFinal/register.htm"><span class="glyphicon glyphicon-lock"> </span>Create an Account</a></li>			
 					</ul>
 				</div>
