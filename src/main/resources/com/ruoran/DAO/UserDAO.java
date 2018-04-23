@@ -54,7 +54,7 @@ public class UserDAO extends DAO{
 	public User get(String userEmail, String password) throws Exception {
 		try {
 			begin();
-			Query q = getSession().createQuery("from User where userEmail = :useremail and password = :password");
+			Query q = getSession().createQuery("from User where email = :useremail and password = :password");
 			q.setString("useremail", userEmail);
 			q.setString("password", password);			
 			User user = (User) q.uniqueResult();
@@ -68,7 +68,7 @@ public class UserDAO extends DAO{
 	public User get(String userEmail){
 		try {
 			begin();
-			Query q = getSession().createQuery("from User where userEmail = :useremail");
+			Query q = getSession().createQuery("from User where email = :useremail");
 			q.setString("useremail", userEmail);
 			User user = (User) q.uniqueResult();
 			return user;

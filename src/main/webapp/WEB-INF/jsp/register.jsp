@@ -49,8 +49,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="reg">
 					 <p>Welcome, please enter the following details to continue.</p>
 					 <p>If you have previously registered with us, <a href="${contextPath}/WEBToolFinal/account.htm">click here</a></p>
-                                         <form> 
-                                             <!--action="registerValid.htm">-->
+                                         <form action="registerValid.htm">
 						 <ul>
 							 <li class="text-info">First Name: </li>
 							 <li><input id="fname" name="fname" type="text" ><span id="uspan"></span></li>
