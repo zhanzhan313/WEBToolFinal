@@ -4,16 +4,30 @@
     Author     : 站站
 --%>
 
+<%@page import="com.ruoran.pojo.User"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%  User user =(User) session.getAttribute("existUser");
+boolean ifexist=(user==null)?false:true;
+String ifexsr=String.valueOf(ifexist);
+boolean ifnull=(user==null)?true:false;
+System.out.println("className.methodName()"+user.getEmail());
+            %>
 <div class="header">
 		<div class="header-top-strip">
 			<div class="container">
 				<div class="header-top-left">
 					<ul>
-						<li><a href="${contextPath}/WEBToolFinal/account.htm"><span class="glyphicon glyphicon-user"> </span>Login</a></li>
-						<li><a href="${contextPath}/WEBToolFinal/register.htm"><span class="glyphicon glyphicon-lock"> </span>Create an Account</a></li>			
-					</ul>
+                                            <%
+                                            if(!ifexist){
+                                                out.print("<li><a href='${contextPath}/WEBToolFinal/account.htm'><span class='glyphicon glyphicon-user'> </span>Login</a></li><li><a href='${contextPath}/WEBToolFinal/register.htm'><span class='glyphicon glyphicon-lock'> </span>Create an Account</a></li>");
+                                            }
+                                            if(ifexist){
+                                             out.print("<li><a href='#'><span class='glyphicon glyphicon-user'> </span> WelCome "+user.getEmail()+" !</a></li><li><a href='${contextPath}/WEBToolFinal/register.htm'><span class='glyphicon glyphicon-lock'> </span>View My Account</a></li>");}
+    %>
+                                   
+                                            </ul>
 				</div>
 				<div class="header-right">
 						<div class="cart box_1">

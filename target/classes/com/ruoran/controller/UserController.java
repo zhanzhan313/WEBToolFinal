@@ -8,6 +8,7 @@ package com.ruoran.controller;
 import com.ruoran.DAO.UserDAO;
 import com.ruoran.pojo.User;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -38,14 +39,63 @@ public class UserController {
         return "index";
     }
 
+    @RequestMapping("/confirmLogin.htm")
+    public String confirmLogin(HttpServletRequest request, UserDAO userDao) {
+        String useremail = request.getParameter("email");
+        String password = request.getParameter("password");
+        try {
+            User user = userDao.get(useremail, password);
+            if (user != null) {
+                System.out.println(user.getUid());
+                HttpSession session = request.getSession();
+                session.setAttribute("existUser", user);
+                return "index";
+            } else {
+                return "errorPage";
+            }
+        } catch (Exception e) {
+            return "errorPage";
+        }
+
+    }
+
+    @RequestMapping("/registerValid.htm")
+    public String registerValid(HttpServletRequest request, UserDAO userDao) {
+        String fname = request.getParameter("fname");
+        String lname = request.getParameter("lname");
+        String useremail = request.getParameter("useremail");
+        String password = request.getParameter("password");
+        String mobilenumber = request.getParameter("mobilenumber");
+        String address = request.getParameter("address");
+        User user = new User();
+        user.setAddr(address);
+        user.setLname(lname);
+        user.setEmail(useremail);
+        user.setFname(fname);
+        user.setPassword(password);
+        user.setPhone(lname);
+        try {
+            userDao.register(user);
+        } catch (Exception e) {
+            System.out.println(e);
+            return "errorPage";
+        }
+
+        return "index";
+    }
+
     @RequestMapping(value = "/findbyEmail.htm", method = RequestMethod.POST)
     @ResponseBody
-    public String ajaxService(HttpServletRequest request) {
+    public String ajaxService(HttpServletRequest request, UserDAO userDao) {
         String useremail = request.getParameter("useremail");
         System.out.println("com.ruoran.controller.UserController.ajaxService()" + useremail);
         String result = "";
-        if (useremail.equals("ruoran")) {
+
+        User user = userDao.get(useremail);
+        if (user != null) {
+            System.out.println(user.getUid());
             return "you cannot use";
+
         } else {
             return "you can use";
         }
@@ -56,17 +106,17 @@ public class UserController {
     public String add(HttpServletRequest request) {
 // String useremail = request.getParameter("username");
 //			String password = request.getParameter("password");
-UserDAO userDao=new UserDAO();
+        UserDAO userDao = new UserDAO();
         User user = new User();
         user.setEmail("rwrew");
         user.setPassword("grgre");
 //        user.setState(0);
         try {
-              User u = userDao.register(user);
+            User u = userDao.register(user);
         } catch (Exception e) {
-           e.printStackTrace();
+            e.printStackTrace();
         }
-      
+
         return "index";
     }
 
