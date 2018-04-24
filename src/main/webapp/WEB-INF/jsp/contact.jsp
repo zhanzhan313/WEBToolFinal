@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>CheckOut</title>
+<title>Eshop a Flat E-Commerce Bootstrap Responsive Website Template | Contact :: 小贝壳网站模板</title>
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/jquery.min.js"></script>
@@ -24,19 +24,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 <body>
 	<!-- header-section-starts -->
-        <%@include file="menu.jsp" %> 
-		<!-- content-section-starts -->
-	<div class="content">
+		
+		<%@include file="menu.jsp" %> 
+		
+<!-- contact-page -->
+<div class="contact">
 	<div class="container">
-		<div class="login-page">
-			    <div class="dreamcrub">
+	<div class="dreamcrub">
 			   	 <ul class="breadcrumbs">
                     <li class="home">
                        <a href="${contextPath}/WEBToolFinal/index.htm" title="Go to Home Page">Home</a>&nbsp;
                        <span>&gt;</span>
                     </li>
                     <li class="women">
-                       Login
+                       Contact
                     </li>
                 </ul>
                 <ul class="previous">
@@ -44,33 +45,33 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </ul>
                 <div class="clearfix"></div>
 			   </div>
-			   <div class="account_grid">
-			   <div class="col-md-6 login-left wow fadeInLeft" data-wow-delay="0.4s">
-			  	 <h2>NEW CUSTOMERS</h2>
-				 <p>By creating an account with our store, you will be able to move through the checkout process faster, store multiple shipping addresses, view and track your orders in your account and more.</p>
-				 <a class="acount-btn"  href="${contextPath}/WEBToolFinal/register.htm">Create an Account</a>
-			   </div>
-			   <div class="col-md-6 login-right wow fadeInRight" data-wow-delay="0.4s">
-			  	<h3>REGISTERED CUSTOMERS</h3>
-				<p>If you have an account with us, please log in.</p>
-				<form  action="confirmLogin.htm">
-				  <div>
-					<span>Email Address<label>*</label></span>
-					<input name="email" type="text"> 
-				  </div>
-				  <div>
-					<span>Password<label>*</label></span>
-					<input name="password" type="password"> 
-				  </div>
-				  <a class="forgot" href="#">Forgot Your Password?</a>
-				  <input type="submit" value="Login">
-			    </form>
-			   </div>	
-			   <div class="clearfix"> </div>
-			 </div>
-		   </div>
+		<div class="contact-info">
+			<h2>FIND US HERE</h2>
+		</div>
+		<div class="contact-map">
+		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2949.1274194639473!2d-71.09136038410577!3d42.33980667918823!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e37a1999cf5ce1%3A0xc97b00e66522b98c!2z5Lic5YyX5aSn5a2m!5e0!3m2!1szh-CN!2sin!4v1524517757812" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+		</div>
+		<div class="contact-form">
+			<div class="contact-info">
+				<h3>CONTACT FORM</h3>
+			</div>
+			<form>
+				<div class="contact-left">
+					<input type="text" placeholder="Name" required>
+					<input type="text" placeholder="E-mail" required>
+					<input type="text" placeholder="Subject" required>
+				</div>
+				<div class="contact-right">
+					<textarea placeholder="Message" required></textarea>
+				</div>
+				<div class="clearfix"></div>
+				<input type="submit" value="SUBMIT">
+			</form>
+		</div>
+	</div>
 </div>
-		
+<!-- //contact-page -->
+	
 		<%@include file="footer.jsp" %> 
 </body>
 </html>

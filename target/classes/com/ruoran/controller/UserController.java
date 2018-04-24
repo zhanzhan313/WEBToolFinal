@@ -23,8 +23,14 @@ public class UserController {
 
     @RequestMapping("/account.htm")
     public String login() {
-
         return "account";
+    }
+
+    @RequestMapping("/logout.htm")
+    public String logout(HttpServletRequest request) {
+        request.getSession().invalidate();
+        return "index";
+
     }
 
     @RequestMapping("/register.htm")
@@ -63,8 +69,8 @@ public class UserController {
     public String registerValid(HttpServletRequest request, UserDAO userDao) {
         String fname = request.getParameter("fname");
         String lname = request.getParameter("lname");
-        String useremail = request.getParameter("useremail");
-        String password = request.getParameter("password");
+        String useremail = request.getParameter("email");
+        String password = request.getParameter("pass");
         String mobilenumber = request.getParameter("mobilenumber");
         String address = request.getParameter("address");
         User user = new User();
@@ -76,6 +82,8 @@ public class UserController {
         user.setPhone(lname);
         try {
             userDao.register(user);
+            HttpSession session = request.getSession();
+            session.setAttribute("existUser", user);
         } catch (Exception e) {
             System.out.println(e);
             return "errorPage";
@@ -94,10 +102,10 @@ public class UserController {
         User user = userDao.get(useremail);
         if (user != null) {
             System.out.println(user.getUid());
-            return "you cannot use";
+            return "This email has been used, Please use another one";
 
         } else {
-            return "you can use";
+            return "You can use this email!";
         }
 
     }

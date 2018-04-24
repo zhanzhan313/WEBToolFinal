@@ -10,21 +10,19 @@
 <!DOCTYPE html>
 <%  User user =(User) session.getAttribute("existUser");
 boolean ifexist=(user==null)?false:true;
-String ifexsr=String.valueOf(ifexist);
-boolean ifnull=(user==null)?true:false;
-System.out.println("className.methodName()"+user.getEmail());
             %>
 <div class="header">
 		<div class="header-top-strip">
 			<div class="container">
 				<div class="header-top-left">
 					<ul>
+                                            <li><a href=productList.htm><span class='glyphicon glyphicon-user'> </span>ProductList</a></li>
                                             <%
                                             if(!ifexist){
-                                                out.print("<li><a href='${contextPath}/WEBToolFinal/account.htm'><span class='glyphicon glyphicon-user'> </span>Login</a></li><li><a href='${contextPath}/WEBToolFinal/register.htm'><span class='glyphicon glyphicon-lock'> </span>Create an Account</a></li>");
+                                                out.print("<li><a href=account.htm><span class='glyphicon glyphicon-user'> </span>Login</a></li><li><a href=register.htm><span class='glyphicon glyphicon-lock'> </span>Create an Account</a></li>");
                                             }
                                             if(ifexist){
-                                             out.print("<li><a href='#'><span class='glyphicon glyphicon-user'> </span> WelCome "+user.getEmail()+" !</a></li><li><a href='${contextPath}/WEBToolFinal/register.htm'><span class='glyphicon glyphicon-lock'> </span>View My Account</a></li>");}
+                                             out.print("<li><a href='#'><span class='glyphicon glyphicon-user'> </span> WelCome "+user.getFname()+" !</a></li><li><a href=logout.htm><span class='glyphicon glyphicon-lock'> </span>Logout</a></li>");}
     %>
                                    
                                             </ul>
@@ -174,7 +172,7 @@ System.out.println("className.methodName()"+user.getEmail());
 		            </ul>
 		        </li>
 					<li><a href="typography.html">TYPO</a></li>
-					<li><a href="contact.html">CONTACT</a></li>
+					<li><a href="${contextPath}/WEBToolFinal/contact.htm">CONTACT</a></li>
 	        </ul>
 	    </div>
 	    <!--/.navbar-collapse-->
