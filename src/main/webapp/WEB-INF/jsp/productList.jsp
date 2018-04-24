@@ -129,12 +129,12 @@
 
             
         </style>
-        <link href="./css/bootstrap.css" rel='stylesheet' type='text/css' />
+        <!--<link href="./css/bootstrap.css" rel='stylesheet' type='text/css' />-->
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script src="./js/jquery.min.js"></script>
+        <!--<script src="./js/jquery.min.js"></script>-->
         <!-- Custom Theme files -->
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-        <link href="./css/style.css" rel="stylesheet" type="text/css" media="all" />
+        <!--<link href="./css/style.css" rel="stylesheet" type="text/css" media="all" />-->
     </head>
 
 
