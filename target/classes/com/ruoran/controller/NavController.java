@@ -26,6 +26,11 @@ public class NavController {
 
         return "productList";
     }
+    @RequestMapping("/addtocart.htm")
+    public String addtocart() {
+
+        return "productList";
+    }
 
 
 }

@@ -55,7 +55,7 @@
                 line-height: 38px;
             }
             .overlay .button:first-child {
-                margin-bottom: 2em;
+                margin-bottom: 5px;
             }
             .product-details {
                 padding-top: 15px;
@@ -102,6 +102,7 @@
             .buttoncontainer{
                 margin-left: 45%;
                 margin-top: 5%;
+                margin-buttom: 5%;
             }
             .Contentcontainer{
                 margin-left: 28%;
@@ -115,6 +116,10 @@
                 width:60%; 
 
             }
+            .but{
+                margin-left: 28%;
+                margin-top: 5%;
+            }
             .product-image-detail{
                 width: 90%;
                 height: 0;
@@ -127,18 +132,20 @@
                 background-size: cover;
             }
 
-            
+
         </style>
-        <!--<link href="./css/bootstrap.css" rel='stylesheet' type='text/css' />-->
+
+        <link href="./css/bootstrap.css" rel='stylesheet' type='text/css' />
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <!--<script src="./js/jquery.min.js"></script>-->
         <!-- Custom Theme files -->
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-        <!--<link href="./css/style.css" rel="stylesheet" type="text/css" media="all" />-->
+        <link href="./css/style.css" rel="stylesheet" type="text/css" media="all" />
     </head>
 
 
     <body>
+
         <div class="layout-container">
             <div id="formItem_wrap" class="product-grid row">
 
@@ -163,49 +170,55 @@
                 var mydiv = document.getElementById("formItem_wrap");
                 for (var i = 0; i < data.items.length; i++)
                 {
-                     if(data.items[i].saleInfo.saleability !== 'NOT_FOR_SALE' ){
-                          var div3 = document.createElement("div");
-                    var divIC = document.createElement("div");
-                    var divPi = document.createElement("div");
-                    var divOL = document.createElement("div");
-                    var divView = document.createElement("div");
-                    var divADD = document.createElement("div");
+                    if (data.items[i].saleInfo.saleability !== 'NOT_FOR_SALE') {
+                        var div3 = document.createElement("div");
+                        var divIC = document.createElement("div");
+                        var divPi = document.createElement("div");
+                        var divOL = document.createElement("div");
+                        var divView = document.createElement("div");
+                        var divADD = document.createElement("div");
+                        var aa = document.createElement("a");
+                        var aa2 = document.createElement("a");
 
-                    divADD.setAttribute("class", "btn btn-success");
+                        divADD.setAttribute("class", "btn btn-success");
 //                                divADD.setAttribute("(click)","addToCart(product)");
-                    divADD.innerHTML = "ADD";
-                    divView.setAttribute("class", "btn btn-success");
+                        divADD.innerHTML = "ADD";
+                        divView.setAttribute("class", "btn btn-success");
+                        aa.appendChild(divView);
+                        aa.setAttribute("href", data.items[i].volumeInfo.infoLink);
+                        aa2.appendChild(divADD);
+                        aa2.setAttribute("href", "addtocart.htm");
 
-                    var bigImg = document.createElement("img");
-                    bigImg.setAttribute("class", "background-image");
-                    bigImg.src = data.items[i].volumeInfo.imageLinks.thumbnail;
+                        var bigImg = document.createElement("img");
+                        bigImg.setAttribute("class", "background-image");
+                        bigImg.src = data.items[i].volumeInfo.imageLinks.thumbnail;
 
-                    divView.innerHTML = "View Detail";
-                    divOL.appendChild(divView);
+                        divView.innerHTML = "View Detail";
+                         divOL.appendChild(aa);
+                        divOL.appendChild(aa2);
 
-                    divOL.appendChild(divADD);
-                    div3.setAttribute("class", "col-md-3");
-                    divOL.setAttribute("class", "overlay");
-                    divIC.setAttribute("class", "image-container");
+                        div3.setAttribute("class", "col-md-3");
+                        divOL.setAttribute("class", "overlay");
+                        divIC.setAttribute("class", "image-container");
 
-                    divPi.appendChild(bigImg);
-                    divIC.appendChild(divPi);
-                    divIC.appendChild(divOL);
-                    var divPd = document.createElement("div");
-                    divPd.setAttribute("class", "product-details");
-                    var divpt = document.createElement("div");
-                    divpt.setAttribute("class", "product-title");
-                    divpt.innerHTML = data.items[i].volumeInfo.title;
-                    var divpp = document.createElement("div");
-                     divpp.innerHTML = "\$"+data.items[i].saleInfo.retailPrice.amount+"";
-                     divpp.setAttribute("class", "product-price");
-                     divPd.appendChild(divpt);
-                     divPd.appendChild(divpp);
-                    div3.appendChild(divIC);
-                    div3.appendChild(divPd);
-                    mydiv.appendChild(div3);
+                        divPi.appendChild(bigImg);
+                        divIC.appendChild(divPi);
+                        divIC.appendChild(divOL);
+                        var divPd = document.createElement("div");
+                        divPd.setAttribute("class", "product-details");
+                        var divpt = document.createElement("div");
+                        divpt.setAttribute("class", "product-title");
+                        divpt.innerHTML = data.items[i].volumeInfo.title;
+                        var divpp = document.createElement("div");
+                        divpp.innerHTML = "\$" + data.items[i].saleInfo.retailPrice.amount + "";
+                        divpp.setAttribute("class", "product-price");
+                        divPd.appendChild(divpt);
+                        divPd.appendChild(divpp);
+                        div3.appendChild(divIC);
+                        div3.appendChild(divPd);
+                        mydiv.appendChild(div3);
                     }
-                   
+
                 }
                 //            data.items.forEach(element => {
                 //             
