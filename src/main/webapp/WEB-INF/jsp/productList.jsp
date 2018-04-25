@@ -131,6 +131,9 @@
                 background-repeat: no-repeat;
                 background-size: cover;
             }
+            .height-380{
+                height: 380px;
+            }
 
 
         </style>
@@ -166,7 +169,7 @@
                 };
                 xHttp.send();
             }
-            getBooks(url, function (data) {
+               getBooks(url, function (data) {
                 var mydiv = document.getElementById("formItem_wrap");
                 for (var i = 0; i < data.items.length; i++)
                 {
@@ -190,20 +193,25 @@
                     aa.appendChild(divView);
                     aa.setAttribute("href", data.items[i].volumeInfo.infoLink);
                     aa2.appendChild(divADD);
-                    aa2.setAttribute("href", "addtocart.htm");
+                    aa2.setAttribute("href", "addtocartser.htm?bookname="+data.items[i].volumeInfo.title);
                     div121.setAttribute("class", "col-12");
                     div122.setAttribute("class", "col-12");
                     divrow.setAttribute("class", "row");
 
                     var bigImg = document.createElement("img");
                     bigImg.setAttribute("class", "background-image");
-                    bigImg.src = data.items[i].volumeInfo.imageLinks.thumbnail;
+                    if (data.items[i].volumeInfo && data.items[i].volumeInfo.imageLinks && data.items[i].volumeInfo.imageLinks.thumbnail) {
+                        bigImg.src = data.items[i].volumeInfo.imageLinks.thumbnail;
+                    } else {
+                        bigImg.src = "https://cdn.browshot.com/static/images/not-found.png";
+                    }
+                    
 
                     divView.innerHTML = "View Detail";
                     divOL.appendChild(aa);
                     divOL.appendChild(aa2);
 
-                    div3.setAttribute("class", "col-md-4 col-sm-12 col-lg-3 center-align");
+                    div3.setAttribute("class", "col-md-4 col-sm-12 col-lg-3 center-align height-380");
                     divOL.setAttribute("class", "overlay");
                     divIC.setAttribute("class", "image-container");
 
