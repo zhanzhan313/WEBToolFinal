@@ -7,6 +7,7 @@
 <%@page import="com.ruoran.pojo.CartItem"%>
 <%@page import="com.ruoran.pojo.Cart"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c"   uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <%  Cart mycart =(Cart) session.getAttribute("mycart");
 boolean ifexist=(mycart==null)?false:true;
@@ -20,7 +21,9 @@ System.out.println("there is "+cartItem.getProduct().getPname());
         <title>JSP Page</title>
     </head>
     <body>
-    
-<%=mycart%>
+    <c:set var="cart" scope="session" value="${mycart}"/>
+    <c:forEach var="cartitem" items="${cart.cartItems}">
+               <c:out value="${cartitem.product.pid}"></c:out>
+    </c:forEach>
     </body>
 </html>
