@@ -153,7 +153,7 @@
         </div>
         <script type="text/javascript">
 
-            var url = "https://www.googleapis.com/books/v1/volumes?q=science&filter=paid-ebooks&printType=books&orderBy=newest&projection=full&maxResults=40&key=AIzaSyDJDuTh2FkoJ9w9aBbgL3YGZnJtcVGJgZQ";
+            var url = "https://www.googleapis.com/books/v1/volumes?q=science&filter=paid-ebooks&printType=books&orderBy=newest&projection=full&maxResults=40";
 
             function getBooks(url, callback) {
                 var xHttp = new XMLHttpRequest();
@@ -170,8 +170,7 @@
                 var mydiv = document.getElementById("formItem_wrap");
                 for (var i = 0; i < data.items.length; i++)
                 {
-                    if (data.items[i].saleInfo.saleability !== 'NOT_FOR_SALE') {
-                        var div3 = document.createElement("div");
+                      var div3 = document.createElement("div");
                         var divIC = document.createElement("div");
                         var divPi = document.createElement("div");
                         var divOL = document.createElement("div");
@@ -217,7 +216,9 @@
                         div3.appendChild(divIC);
                         div3.appendChild(divPd);
                         mydiv.appendChild(div3);
-                    }
+//                    if (data.items[i].saleInfo.saleability !== 'NOT_FOR_SALE') {
+//                      
+//                    }
 
                 }
                 //            data.items.forEach(element => {
