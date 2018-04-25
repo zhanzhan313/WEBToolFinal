@@ -153,7 +153,7 @@
         </div>
         <script type="text/javascript">
 
-            var url = "https://www.googleapis.com/books/v1/volumes?q=science&filter=paid-ebooks&printType=books&orderBy=newest&projection=full&maxResults=40&key=AIzaSyDJDuTh2FkoJ9w9aBbgL3YGZnJtcVGJgZQ";
+            var url = "https://www.googleapis.com/books/v1/volumes?q=science&filter=paid-ebooks&printType=books&orderBy=newest&projection=full&maxResults=40";
 
             function getBooks(url, callback) {
                 var xHttp = new XMLHttpRequest();
@@ -170,60 +170,74 @@
                 var mydiv = document.getElementById("formItem_wrap");
                 for (var i = 0; i < data.items.length; i++)
                 {
-                    if (data.items[i].saleInfo.saleability !== 'NOT_FOR_SALE') {
-                        var div3 = document.createElement("div");
-                        var divIC = document.createElement("div");
-                        var divPi = document.createElement("div");
-                        var divOL = document.createElement("div");
-                        var divView = document.createElement("div");
-                        var divADD = document.createElement("div");
-                        var aa = document.createElement("a");
-                        var aa2 = document.createElement("a");
 
-                        divADD.setAttribute("class", "btn btn-success");
+                    var div3 = document.createElement("div");
+                    var divIC = document.createElement("div");
+                    var divPi = document.createElement("div");
+                    var divOL = document.createElement("div");
+                    var divView = document.createElement("div");
+                    var divADD = document.createElement("div");
+                    var aa = document.createElement("a");
+                    var aa2 = document.createElement("a");
+                    var div121 = document.createElement("div");
+                    var div122 = document.createElement("div");
+                    var divrow = document.createElement("div");
+
+                    divADD.setAttribute("class", "btn btn-success");
 //                                divADD.setAttribute("(click)","addToCart(product)");
-                        divADD.innerHTML = "ADD";
-                        divView.setAttribute("class", "btn btn-success");
-                        aa.appendChild(divView);
-                        aa.setAttribute("href", data.items[i].volumeInfo.infoLink);
-                        aa2.appendChild(divADD);
-                        aa2.setAttribute("href", "addtocart.htm");
+                    divADD.innerHTML = "ADD";
+                    divView.setAttribute("class", "btn btn-success");
+                    aa.appendChild(divView);
+                    aa.setAttribute("href", data.items[i].volumeInfo.infoLink);
+                    aa2.appendChild(divADD);
+                    aa2.setAttribute("href", "addtocart.htm");
+                    div121.setAttribute("class", "col-12");
+                    div122.setAttribute("class", "col-12");
+                    divrow.setAttribute("class", "row");
 
-                        var bigImg = document.createElement("img");
-                        bigImg.setAttribute("class", "background-image");
-                        bigImg.src = data.items[i].volumeInfo.imageLinks.thumbnail;
+                    var bigImg = document.createElement("img");
+                    bigImg.setAttribute("class", "background-image");
+                    bigImg.src = data.items[i].volumeInfo.imageLinks.thumbnail;
 
-                        divView.innerHTML = "View Detail";
-                         divOL.appendChild(aa);
-                        divOL.appendChild(aa2);
+                    divView.innerHTML = "View Detail";
+                    divOL.appendChild(aa);
+                    divOL.appendChild(aa2);
 
-                        div3.setAttribute("class", "col-md-3");
-                        divOL.setAttribute("class", "overlay");
-                        divIC.setAttribute("class", "image-container");
+                    div3.setAttribute("class", "col-md-4 col-sm-12 col-lg-3 center-align");
+                    divOL.setAttribute("class", "overlay");
+                    divIC.setAttribute("class", "image-container");
 
-                        divPi.appendChild(bigImg);
-                        divIC.appendChild(divPi);
-                        divIC.appendChild(divOL);
-                        var divPd = document.createElement("div");
-                        divPd.setAttribute("class", "product-details");
-                        var divpt = document.createElement("div");
-                        divpt.setAttribute("class", "product-title");
-                        divpt.innerHTML = data.items[i].volumeInfo.title;
-                        var divpp = document.createElement("div");
+                    divPi.appendChild(bigImg);
+                    divIC.appendChild(divPi);
+                    divIC.appendChild(divOL);
+                    div121.appendChild(divIC);
+
+                    var divPd = document.createElement("div");
+                    divPd.setAttribute("class", "product-details");
+                    var divpt = document.createElement("div");
+                    divpt.setAttribute("class", "product-title");
+                    divpt.innerHTML = data.items[i].volumeInfo.title;
+                    var divpp = document.createElement("div");
+                    if (data.items[i].saleInfo.saleability !== 'NOT_FOR_SALE') {
                         divpp.innerHTML = "\$" + data.items[i].saleInfo.retailPrice.amount + "";
-                        divpp.setAttribute("class", "product-price");
-                        divPd.appendChild(divpt);
-                        divPd.appendChild(divpp);
-                        div3.appendChild(divIC);
-                        div3.appendChild(divPd);
-                        mydiv.appendChild(div3);
-                    }
-
+                    } else
+                        divpp.innerHTML = "Not for sale";
+                    divpp.setAttribute("class", "product-price");
+                    divPd.appendChild(divpt);
+                    divPd.appendChild(divpp);
+                    div122.appendChild(divPd);
+                   
+                    divrow.appendChild(div121);
+                    divrow.appendChild(div122);
+                    div3.appendChild(divrow);
+                    mydiv.appendChild(div3);
                 }
-                //            data.items.forEach(element => {
-                //             
-                //            });
-            });
+
+            }
+            //            data.items.forEach(element => {
+            //             
+            //            });
+            );
 
 
 
