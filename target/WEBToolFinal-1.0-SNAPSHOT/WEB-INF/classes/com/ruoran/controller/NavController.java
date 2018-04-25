@@ -21,6 +21,11 @@ public class NavController {
 
         return "contact";
     }
+    @RequestMapping("/checkout.htm")
+    public String checkout() {
+
+        return "checkout";
+    }
     @RequestMapping("/productList.htm")
     public String productList() {
 
