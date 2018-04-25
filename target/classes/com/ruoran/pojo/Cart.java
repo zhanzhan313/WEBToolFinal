@@ -15,7 +15,7 @@ import java.util.Map;
  */
 public class Cart {
 
-    private Map<Integer, CartItem> map = new LinkedHashMap<Integer, CartItem>();
+    private Map<String, CartItem> map = new LinkedHashMap<String, CartItem>();
 
  
 	public Collection<CartItem> getCartItems() {
@@ -30,7 +30,7 @@ public class Cart {
 
     public void addCart(CartItem cartItem) {
 
-        Integer pid = cartItem.getProduct().getPid();
+        String pid = cartItem.getProduct().getPid();
         //if items already exist in cart
         if (map.containsKey(pid)) {
             // exist

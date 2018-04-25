@@ -12,7 +12,7 @@ import java.util.Date;
  * @author ruoran
  */
 public class Product {
-    private Integer pid;
+    private String pid;
 	private String pname;
 	private Double market_price;
 	private Double shop_price;
@@ -20,11 +20,11 @@ public class Product {
 	private String pdesc;
 	private Date pdate;
 
-    public Integer getPid() {
+    public String getPid() {
         return pid;
     }
 
-    public void setPid(Integer pid) {
+    public void setPid(String pid) {
         this.pid = pid;
     }
 
@@ -36,14 +36,7 @@ public class Product {
         this.pname = pname;
     }
 
-    public Double getMarket_price() {
-        return market_price;
-    }
-
-    public void setMarket_price(Double market_price) {
-        this.market_price = market_price;
-    }
-
+  
     public Double getShop_price() {
         return shop_price;
     }
@@ -74,6 +67,14 @@ public class Product {
 
     public void setPdate(Date pdate) {
         this.pdate = pdate;
+    }
+
+    public Double getMarket_price() {
+        return market_price;
+    }
+
+    public void setMarket_price(Double market_price) {
+        this.market_price = market_price;
     }
 
 	

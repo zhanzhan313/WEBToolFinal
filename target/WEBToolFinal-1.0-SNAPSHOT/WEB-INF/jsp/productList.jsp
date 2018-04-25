@@ -169,11 +169,11 @@
                 };
                 xHttp.send();
             }
-               getBooks(url, function (data) {
+            getBooks(url, function (data) {
                 var mydiv = document.getElementById("formItem_wrap");
                 for (var i = 0; i < data.items.length; i++)
                 {
-
+ if (data.items[i].saleInfo.saleability !== 'NOT_FOR_SALE'){
                     var div3 = document.createElement("div");
                     var divIC = document.createElement("div");
                     var divPi = document.createElement("div");
@@ -193,19 +193,21 @@
                     aa.appendChild(divView);
                     aa.setAttribute("href", data.items[i].volumeInfo.infoLink);
                     aa2.appendChild(divADD);
-                    aa2.setAttribute("href", "addtocartser.htm?bookname="+data.items[i].volumeInfo.title);
-                    div121.setAttribute("class", "col-12");
-                    div122.setAttribute("class", "col-12");
-                    divrow.setAttribute("class", "row");
-
                     var bigImg = document.createElement("img");
                     bigImg.setAttribute("class", "background-image");
                     if (data.items[i].volumeInfo && data.items[i].volumeInfo.imageLinks && data.items[i].volumeInfo.imageLinks.thumbnail) {
                         bigImg.src = data.items[i].volumeInfo.imageLinks.thumbnail;
-                    } else {
+                        aa2.setAttribute("href", "addtocartser.htm?bookname=" + data.items[i].volumeInfo.title + "&bookimg=" + data.items[i].volumeInfo.imageLinks.thumbnail + "&bookprice=" + data.items[i].saleInfo.retailPrice.amount+ "&bookid=" + data.items[i].id);
+                  } else {
                         bigImg.src = "https://cdn.browshot.com/static/images/not-found.png";
+                        aa2.setAttribute("href", "addtocartser.htm?bookname=" + data.items[i].volumeInfo.title + "&bookimg=https://cdn.browshot.com/static/images/not-found.png" + "&bookprice=" + data.items[i].saleInfo.retailPrice.amount+ "&bookid=" + data.items[i].id);
                     }
-                    
+                    div121.setAttribute("class", "col-12");
+                    div122.setAttribute("class", "col-12");
+                    divrow.setAttribute("class", "row");
+
+
+
 
                     divView.innerHTML = "View Detail";
                     divOL.appendChild(aa);
@@ -234,14 +236,14 @@
                     divPd.appendChild(divpt);
                     divPd.appendChild(divpp);
                     div122.appendChild(divPd);
-                   
+
                     divrow.appendChild(div121);
                     divrow.appendChild(div122);
                     div3.appendChild(divrow);
                     mydiv.appendChild(div3);
                 }
 
-            }
+            }}
             //            data.items.forEach(element => {
             //             
             //            });
