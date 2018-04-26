@@ -8,8 +8,16 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<%  User user =(User) session.getAttribute("existUser");
-boolean ifexist=(user==null)?false:true;
+<%  User user=new User();
+ boolean ifexist=false;
+    try {
+           user =(User) session.getAttribute("existUser");
+            ifexist=(user.getEmail()==null)?false:true;
+        } catch (Exception e) {
+            
+        }
+
+
             %>
 <div class="header">
 		<div class="header-top-strip">

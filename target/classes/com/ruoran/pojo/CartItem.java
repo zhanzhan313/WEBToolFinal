@@ -27,7 +27,8 @@ public class CartItem {
 	}
 	// 小计自动计算的.
 	public double getSubtotal() {
-		return count * product.getShop_price();
+		return count *(product.getMarket_price());
+                
 	}
 	/*public void setSubtotal(double subtotal) {
 		this.subtotal = subtotal;
