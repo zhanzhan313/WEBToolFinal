@@ -200,7 +200,7 @@
                         var dest=data.items[i].volumeInfo.imageLinks.thumbnail;
                         var name=data.items[i].volumeInfo.title;
                         dest=dest.replace(/\&/g,"%26");
-                        name=dest.replace(/\'/g,"%27");
+                        name=name.replace(/\'/g,"%27");
                         aa2.setAttribute("href", "addtocartser.htm?bookname=" + name + "&bookimg=" +dest+ "&bookprice=" + data.items[i].saleInfo.retailPrice.amount+ "&bookid=" + data.items[i].id);
                   } else {
                         bigImg.src = "https://cdn.browshot.com/static/images/not-found.png";

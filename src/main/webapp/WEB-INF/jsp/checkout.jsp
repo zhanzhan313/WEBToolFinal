@@ -3,9 +3,51 @@
     <head>
         <title>Checkout Page</title>
         <style>
-            .img-responsive{
-                weight:100%;
-                height:100px;
+            .continue {
+                font-size: 2em;
+                color: #000;
+                display: block;
+                font-weight: 600;
+                margin-bottom: 1em;
+                font-family: 'Lato', sans-serif;
+            }
+            .price-details h3 {
+                color: #000;
+                font-size: 1.2em;
+                margin-bottom: 1em;
+            }
+            .price-details span {
+                width: 50%;
+                float: left;
+                font-size: 0.8125em;
+                color: #000;
+                line-height: 1.8em;
+            }
+            ul.total_price li.last_price {
+                width: 50%;
+                float: left;
+            }
+            ul.total_price {
+                padding: 0;
+                margin: 1em 0 0 0;
+                list-style: none;
+            }
+            .cart-total a {
+                color: #fff;
+                background: #FF7000;
+                text-decoration: none;
+                padding: 0.5em 1em;
+                font-size: 1em;
+                display: inline-block;
+                margin-top: 1em;
+            }
+            .cart-total a:hover {
+                background: #01CFCF;
+            }
+
+
+            .cart-total {
+                float: right;
             }
         </style>
         <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
@@ -60,23 +102,22 @@
                                     <img src="${cartitem.product.image}" class="img-responsive" alt="">
                                 </div>
                                 <div class="cart-item-info">
-                                    <h3><a href="#">   <c:out value="${cartitem.product.pname}"></c:out>
-                                            </a><span>Pickup time:</span></h3>
-                                        <ul class="qty">
-                                            <li><p>Min. order value:</p></li>
-                                            <li><p>FREE delivery</p></li>
-                                        </ul>
-                                        <div class="delivery">
-                                            <p>Service Charges : $10.00</p>
-                                            <span>Delivered in 1-1:30 hours</span>
-                                            <div class="clearfix"></div>
-                                        </div>	
-                                    </div>
-                                    <div class="clearfix"></div>
+                                    <h3> <c:out value="${cartitem.product.pname}"/></h3>
+                                    <ul class="qty">
+                                        <li><p>Quantity:</p></li>
+                                        <li><p><c:out value="${cartitem.count}"/></p></li>
+                                    </ul>
+                                    <div class="delivery">
+                                        <p>Price :<c:out value="${cartitem.product.market_price}"/></p>
 
+                                        <div class="clearfix"></div>
+                                    </div>	
                                 </div>
+                                <div class="clearfix"></div>
+
                             </div>
                         </div>
+                    </div>
 
                 </c:forEach>
                 <script>$(document).ready(function (c) {
@@ -87,29 +128,32 @@
                         });
                     });
                 </script>
-
+                <div class=" cart-total">
+                    <h5 class="continue" >Cart Total</h5>
+                    <div class="price-details">
+                        <h3>Price Details</h3>
+                        <span>Total</span>
+                        <span class="total1"><c:out value="${cart.total}"/></span>
+                        <span>Discount</span>
+                        <span class="total1">---</span>
+                        <span>Delivery Charges</span>
+                        <span class="total1">0.00</span>
+                        <div class="clearfix"></div>				 
+                    </div>	
+                    <ul class="total_price">
+                        <li class="last_price"> <h4>TOTAL</h4></li>	
+                        <li class="last_price"><span><c:out value="${cart.total}"/></span></li>
+                        <div class="clearfix"> </div>
+                    </ul>
+                    <a href="checkout.htm">Produced By Cart</a>
+                </div>
 
 
             </div>
         </div>
 
         <!-- //checkout -->	
-        <div class="news-letter">
-            <div class="container">
-                <div class="join">
-                    <h6>JOIN OUR MAILING LIST</h6>
-                    <div class="sub-left-right">
-                        <form>
-                            <input type="text" value="Enter Your Email Here" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                        this.value = 'Enter Your Email Here';
-                                    }" />
-                            <input type="submit" value="SUBSCRIBE" />
-                        </form>
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
-            </div>
-        </div>
+
         <%@include file="footer.jsp" %> 
     </body>
 </html>
