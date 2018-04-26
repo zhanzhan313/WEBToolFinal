@@ -173,7 +173,7 @@
                 var mydiv = document.getElementById("formItem_wrap");
                 for (var i = 0; i < data.items.length; i++)
                 {
- if (data.items[i].saleInfo.saleability !== 'NOT_FOR_SALE'){
+                  if (data.items[i].saleInfo.saleability !== 'NOT_FOR_SALE'){
                     var div3 = document.createElement("div");
                     var divIC = document.createElement("div");
                     var divPi = document.createElement("div");
@@ -197,7 +197,11 @@
                     bigImg.setAttribute("class", "background-image");
                     if (data.items[i].volumeInfo && data.items[i].volumeInfo.imageLinks && data.items[i].volumeInfo.imageLinks.thumbnail) {
                         bigImg.src = data.items[i].volumeInfo.imageLinks.thumbnail;
-                        aa2.setAttribute("href", "addtocartser.htm?bookname=" + data.items[i].volumeInfo.title + "&bookimg=" + data.items[i].volumeInfo.imageLinks.thumbnail + "&bookprice=" + data.items[i].saleInfo.retailPrice.amount+ "&bookid=" + data.items[i].id);
+                        var dest=data.items[i].volumeInfo.imageLinks.thumbnail;
+                        var name=data.items[i].volumeInfo.title;
+                        dest=dest.replace(/\&/g,"%26");
+                        name=dest.replace(/\'/g,"%27");
+                        aa2.setAttribute("href", "addtocartser.htm?bookname=" + name + "&bookimg=" +dest+ "&bookprice=" + data.items[i].saleInfo.retailPrice.amount+ "&bookid=" + data.items[i].id);
                   } else {
                         bigImg.src = "https://cdn.browshot.com/static/images/not-found.png";
                         aa2.setAttribute("href", "addtocartser.htm?bookname=" + data.items[i].volumeInfo.title + "&bookimg=https://cdn.browshot.com/static/images/not-found.png" + "&bookprice=" + data.items[i].saleInfo.retailPrice.amount+ "&bookid=" + data.items[i].id);

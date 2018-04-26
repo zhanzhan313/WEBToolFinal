@@ -24,6 +24,7 @@ System.out.println("there is "+cartItem.getProduct().getPname());
     <c:set var="cart" scope="session" value="${mycart}"/>
     <c:forEach var="cartitem" items="${cart.cartItems}">
                <c:out value="${cartitem.product.pid}"></c:out>
+               <c:out value="${cartitem.count}"></c:out>
     </c:forEach>
     </body>
 </html>
